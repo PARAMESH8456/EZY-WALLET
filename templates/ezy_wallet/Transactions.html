@@ -1,0 +1,43 @@
+{% extends 'ezy_wallet/_base.html' %}
+{% load static %}
+{% block title %}
+    Wallet of {{ user.username }}
+{% endblock %}
+
+{% block balance %}
+    {{ balance }}
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for transaction in transactions %}
+                {% if transaction.expense %}
+                    <tr class="bg-danger">
+                        <td>{{ transaction.amount }}</td>
+                        <td>{{ transaction.transaction_type }}</td>
+                        <td>{{ transaction.description }}</td>
+                        <td>{{ transaction.date }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="bg-success">
+                        <td>{{ transaction.amount }}</td>
+                        <td>{{ transaction.transaction_type }}</td>
+                        <td>{{ transaction.description }}</td>
+                        <td>{{ transaction.date }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

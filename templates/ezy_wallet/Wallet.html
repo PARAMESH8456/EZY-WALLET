@@ -1,0 +1,38 @@
+{% extends 'ezy_wallet/_base.html' %}
+{% load static %}
+{% block title %}
+    Wallet of {{ user.username }}
+{% endblock %}
+
+{% block balance %}
+    {{ balance }}
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="mt-5 mx-auto" style="width: 50%">
+            {% include 'base/_messages.html' %}
+        </div>
+        <div class="card mt-5 mx-auto" style="width: 50%">
+            <div class="card-header">
+                Top Up Wallet
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="amount">Amount :</label>
+                        <input id="amount" name="amount" type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description :</label>
+                        <input id="description" name="description" class="form-control">
+                    </div>
+                    <div class="mt-5">
+                        <input class="btn btn-success ml-auto" style="float: right" type="submit" value="Top Up">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

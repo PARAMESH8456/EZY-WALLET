@@ -1,0 +1,44 @@
+{% extends 'ezy_wallet/_base.html' %}
+{% load static %}
+{% block title %}
+    Wallet of {{ user.username }}
+{% endblock %}
+
+{% block balance %}
+    {{ balance }}
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 mx-auto" style="width: 40%">
+        <div class="mb-4">{% include 'base/_messages.html' %}</div>
+
+        <div class="card">
+            <div class="card-header">
+                DTH
+            </div>
+            <div class="card-body">
+                <form action="{% url 'DTH' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="vendor">Vendor :</label>
+                        <select id="vendor" name="vendor" class="form-control">
+                            <option selected>--Select--</option>
+                            <option>Airtel</option>
+                            <option>VIDEOCON</option>
+                            <option>ACT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="m_no">DTH NO :</label>
+                        <input id="m_no" name="m_no" type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount :</label>
+                        <input id="amount" name="amount" type="number" class="form-control">
+                    </div>
+                    <input class="btn btn-success mt-4" type="submit" value="Pay">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

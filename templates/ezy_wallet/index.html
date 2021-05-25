@@ -1,0 +1,77 @@
+{% extends 'ezy_wallet/_base.html' %}
+{% block title %}
+    Wallet of {{ user.username }}
+{% endblock %}
+
+{% block wallet_link %}
+{% endblock %}
+
+{% block balance %}
+    {{ balance }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="column mx-auto mt-5">
+                <a href="{% url 'electricity_bill' %}">
+                    <div class="card bg-success text-light" style="width: 13rem; text-align: center">
+                        <div class="card-body">
+                            Electricity Bill
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="column mx-auto mt-5">
+                <a href="{% url 'mobile_recharge' %}">
+                    <div class="card bg-success text-light" style="width: 13rem; text-align: center">
+                        <div class="card-body">
+                            Mobile Recharge
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="column mx-auto">
+                <a href="DTH">
+                    <div class="card bg-success text-light" style="width: 13rem; text-align: center">
+                        <div class="card-body">
+                            DTH
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="column mx-auto">
+               <a href="water">
+                    <div class="card bg-success text-light" style="width: 13rem; text-align: center">
+                        <div class="card-body">
+                            Water
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="column mx-auto">
+                <a href="{% url 'broadband' %}">
+                    <div class="card bg-success text-light" style="width: 13rem; text-align: center">
+                        <div class="card-body">
+                            Broadband
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="column mx-auto">
+                <a href="fast_tag">
+                    <div class="card bg-success text-light" style="width: 13rem; text-align: center">
+                        <div class="card-body">
+                            Fast-Tag
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
